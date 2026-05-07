@@ -41,3 +41,5 @@ export const fetchNotifications = () => api.get('/notifications').then(res => re
 export const markRead = (id) => api.patch(`/notifications/${id}/read`).then(res => res.data);
 
 export const markAllRead = () => api.patch('/notifications/read-all').then(res => res.data);
+
+export const deleteFile = (id) => api.delete(`/files/${id}`).then(res => res.data);

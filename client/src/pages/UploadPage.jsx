@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DropZone from '../components/DropZone';
 import FileProgressItem from '../components/FileProgressItem';
 import DocumentTable from '../components/DocumentTable';
-import { uploadFiles, fetchFiles } from '../api';
+import { uploadFiles, fetchFiles, deleteFile } from '../api';
 
 const UploadPage = () => {
   const [documents, setDocuments] = useState([]);
@@ -66,6 +66,16 @@ const UploadPage = () => {
     }
   };
 
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this file?")) return;
+    try {
+      await deleteFile(id);
+      loadFiles();
+    } catch (error) {
+      console.error("Failed to delete", error);
+    }
+  };
+
   return (
     <div className="max-w-5xl mx-auto py-8 px-4 sm:px-6 lg:px-8 animate-fade-in">
       
@@ -91,7 +101,7 @@ const UploadPage = () => {
       {/* Document Library */}
       <div>
         <h3 className="text-lg font-semibold text-slate-800 mb-4">Document Library</h3>
-        <DocumentTable files={documents} />
+        <DocumentTable files={documents} onDelete={handleDelete} />
       </div>
       
     </div>
