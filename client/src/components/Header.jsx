@@ -27,9 +27,7 @@ const Header = ({ activeTab, setActiveTab, notifications, markAllRead, unreadCou
               </svg>
               SWS AI Document Hub
             </div>
-            <span className="bg-primary-light text-primary text-xs font-semibold px-2.5 py-0.5 rounded-full uppercase">
-              Live Demo
-            </span>
+
           </div>
 
           {/* Notification Bell */}

@@ -41,9 +41,7 @@ const DropZone = ({ onDropFiles }) => {
         <span className="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-1 rounded-full">
           Bulk upload
         </span>
-        <span className="bg-primary-light text-primary text-xs font-semibold px-3 py-1 rounded-full">
-          Try 4+ files to trigger notifications
-        </span>
+
       </div>
     </div>
   );
